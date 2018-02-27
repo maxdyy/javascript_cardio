@@ -3,7 +3,7 @@
 // ex. reverseString('hello') === 'olleh'
 
 function reverseString(str) {
-  return 'Let\'s Start'
+  return str.split('').reverse().join('');
 }
 
 
@@ -12,7 +12,9 @@ function reverseString(str) {
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+return str === str.split('').reverse().join('');
+}
 
 
 
@@ -45,6 +47,6 @@ function fizzBuzz() {}
 
 
 // Call Function
-const output = reverseString('hello');
+const output = isPalindrome('hannah');
 
 console.log(output);
