@@ -9,13 +9,10 @@ function longestWord(sen) {
 
   // removes all punctuation
   const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
-
   // ordered by length array
   const sorted = wordArr.sort((a, b) =>  b.length - a.length);
-
   // creates an array if there are multiple longest words
   const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
-  
   // returning string or array of the longest word/words
   if(longestWordArr.length > 1) {
     return longestWordArr
@@ -29,7 +26,19 @@ function longestWord(sen) {
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 3) === [[1, 2, 3],[4, 5, 6],[7]]
 // ex. chunkArray([1, 2, 3, 4, 5, 6, 7], 2) === [[1, 2],[3, 4],[5, 6],[7]]
 
-function chunkArray(arr, len) {}
+function chunkArray(arr, len) {
+  // setting up empty arr
+  const chunkedArr = [];
+  // initial index for slicing
+  let i = 0;
+  // while loop for slicing and pushing into chunkedArr
+  while(i < arr.length) {
+    chunkedArr.push(arr.slice(i, i + len));
+    // increasing the index by len
+    i += len;
+  }
+  return chunkedArr;
+}
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
@@ -52,6 +61,6 @@ function isAnagram(str1, str2) {}
 function letterChanges(str) {}
 
 // Call Function
-const output = longestWord('Hello, my name is Brad');
+const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 1);
 
 console.log(output);
