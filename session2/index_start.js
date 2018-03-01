@@ -6,24 +6,22 @@ function longestWord(sen) {
   // SOLUTION 1 - Return a single longest word
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
   // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
-    // Create filtered array
-    const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
 
-    // Sort by length
-    const sorted = wordArr.sort((a, b) => b.length - a.length);
+  // removes all punctuation
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g)
+
+  // ordered by length array
+  const sorted = wordArr.sort((a, b) =>  b.length - a.length);
+
+  // creates an array if there are multiple longest words
+  const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
   
-    // If multiple words, put into array
-    const longestWordArr = sorted.filter(
-      word => word.length === sorted[0].length
-    );
-  
-    // Check if more than one array val
-    if (longestWordArr.length === 1) {
-      // Return the word
-      return longestWordArr[0];
-    } else {
-      return longestWordArr;
-    }
+  // returning string or array of the longest word/words
+  if(longestWordArr.length > 1) {
+    return longestWordArr
+  } else {
+    return longestWordArr[0]
+  };
 }
 
 // CHALLENGE 2: ARRAY CHUNKING
